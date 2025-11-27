@@ -1,0 +1,16 @@
+version: 2
+
+models:  
+  - name: dim_fortune_metrics
+    description: "Dimension derived from fortune_metrics_snapshot (SCD2 -> current/current history columns)"
+    columns:
+      - name: fortune_metrics_key
+        tests:
+          - not_null
+          - unique
+      - name: slug
+        tests:
+          - not_null
+      - name: valid_from
+        tests:
+          - not_null

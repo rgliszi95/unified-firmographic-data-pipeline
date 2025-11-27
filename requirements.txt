@@ -1,0 +1,9 @@
+apache-airflow==2.7.1
+apache-airflow-providers-snowflake
+pandas
+requests
+beautifulsoup4
+kaggle
+snowflake-connector-python
+lxml
+dbt-snowflake

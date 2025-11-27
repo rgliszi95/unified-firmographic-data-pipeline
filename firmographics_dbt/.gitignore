@@ -1,0 +1,28 @@
+
+# dbt
+profiles.yml
+target/
+dbt_packages/
+dbt_profiles/
+
+# Airflow
+airflow.cfg
+logs/
+*.log
+.venv/
+.env
+variables.json
+
+# AWS credentials
+*.pem
+*.key
+*.p8
+credentials
+.aws/
+
+# Python
+__pycache__/
+*.pyc
+
+# Generic
+.DS_Store

@@ -1,0 +1,24 @@
+version: 2
+
+models:  
+  - name: fact_company_performance
+    description: "Fact table containing company performance metrics"
+    columns:
+      - name: company_key
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_company')
+              field: company_key
+      - name: location_key
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_location')
+              field: location_key
+      - name: fortune_metrics_key
+        tests:
+          - not_null
+      - name: last_updated
+        tests:
+          - not_null

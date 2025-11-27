@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: company_data_raw
+    database: COMPANY_DATA
+    schema: RAW
+    tables:
+      - name: fortune_500
+      - name: wiki_sp500
