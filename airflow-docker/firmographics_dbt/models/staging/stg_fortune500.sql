@@ -59,7 +59,7 @@ cleaned as (
         iff(data:"Fastest Growing Companies" = 'yes', true, false)          as is_fastest_growing,
         iff(data:"World's Most Admired Companies" = 'yes', true, false)     as is_most_admired,
 
-        COALESCE(NULLIF(data:"Change in Rank (500 only)"::string, '')::float, 0)         as change_rank_500,
+        COALESCE(NULLIF(data:"Change in Rank (500 only)"::string, '')::float, 0)        as change_rank_500,
         COALESCE(NULLIF(data:"Change in Rank (Full 1000)"::string, '')::float, 0)       as change_rank_1000
     from flattened
 )

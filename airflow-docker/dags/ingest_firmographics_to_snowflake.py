@@ -65,7 +65,7 @@ def scrape_wikipedia_sp500():
 
 @task
 def upload_dbt_artifacts():
-    s3 = S3Hook(aws_conn_id="aws_conn")  # Use your Airflow AWS connection
+    s3 = S3Hook(aws_conn_id="aws_conn")  
 
     local_target = "./firmographics_dbt/target"
     run_results_path = os.path.join(local_target, "run_results.json")
@@ -105,19 +105,6 @@ def upload_dbt_artifacts():
                     replace=True
                 )
                 print(f"Uploaded {local_path} to s3://{S3_BUCKET}/{s3_key}")
-
-#@task
-#def upload_dbt_artifacts(invocation_id: str):
-#    s3 = boto3.client("s3")
-#
-#    local_dir = "./target"
-#    files_to_upload = ["manifest.json", "run_results.json"]
-#
-#    for file_name in files_to_upload:
-#        local_path = os.path.join(local_dir, file_name)
-#        s3_key = f"dbt_artifacts/{invocation_id}/{file_name}"
-#        s3.upload_file(local_path, S3_BUCKET, s3_key)
-#        print(f"Uploaded {local_path} to s3://{S3_BUCKET}/{s3_key}")
 
 
 # Snowflake COPY INTO commands

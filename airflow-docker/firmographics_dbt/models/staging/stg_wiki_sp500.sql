@@ -44,5 +44,17 @@ deduplicated as (
     where rn = 1
 )
 
-select *
+select 
+    raw_id,
+	ingested_at,
+	source,
+	company_name,
+	symbol,
+	cik,
+	date_added,
+	founded_year,
+	gics_sector,
+	gics_sub_industry,
+	headquarters_location_city,
+	headquarters_location_country
 from deduplicated
