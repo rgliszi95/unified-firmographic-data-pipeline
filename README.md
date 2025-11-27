@@ -163,6 +163,7 @@ After dbt transformation finishes:
     * not_null: Ensures key fields and critical attributes are always populated.
     * unique: Applied on surrogate keys and natural keys where applicable.
     * relationships: Enforces foreign key integrity between fact and dimension tables in the star schema.
+    * value ranges: Excludes impossible values for certain attributes 
 
 ## Custom Tests
 
@@ -274,6 +275,8 @@ erDiagram
     }
 
 ```
+
+---
 
 ### Full ER Diagram (RAW → STAGING → ANALYTICS)
 
