@@ -116,8 +116,7 @@ This layer produces a **fully cleaned, unified dataset** for modeling.
   * `fortune_metrics_snapshot`
 
 * Snapshot tables store **full history**.
-* Related dimension tables store **current only** (active records where `valid_to IS NULL`).
-* This avoids accidental misuse by downstream users. 
+* Related dimension tables store **current only** (active records where `valid_to IS NULL`). -- This avoids accidental misuse by downstream users. 
 
 ### 🔑 Keys
 
@@ -138,9 +137,11 @@ Most models in the 'staging', 'core', and 'analytics' schemas run in incremental
 * exception is `dim_company`, since it's rarely if ever changing
 * this strategy enhances processing efficiency
 
+**Note:** The current data sources are static, so the incremental logic is not actively utilized; however, including it makes the pipeline more scalable and production-ready.
+
 ---
 
-## 9️⃣ Documentation Export
+## 9️⃣ Documentation
 
 After dbt transformation finishes:
 
@@ -160,10 +161,10 @@ After dbt transformation finishes:
 ## Generic Tests
 
 * Applied across all relevant models in staging, core, and analytics:
-    * not_null: Ensures key fields and critical attributes are always populated.
-    * unique: Applied on surrogate keys and natural keys where applicable.
-    * relationships: Enforces foreign key integrity between fact and dimension tables in the star schema.
-    * value ranges: Excludes impossible values for certain attributes 
+    * `not_null`: Ensures key fields and critical attributes are always populated.
+    * `unique`: Applied on surrogate keys and natural keys where applicable.
+    * `relationships`: Enforces foreign key integrity between fact and dimension tables in the star schema.
+    * `value ranges`: Excludes impossible values for certain attributes 
 
 ## Custom Tests
 
